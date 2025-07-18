@@ -1,48 +1,32 @@
 using EagleRock.DataTypes;
-using EagleRock.Repository;
 using EagleRock.Repository.Interfaces;
 using EagleRock.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 namespace EagleRock.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TrafficController : ControllerBase
+    public class TrafficController(ILogger<TrafficController> logger, IRoadFlowRateService roadFlowRateService) : ControllerBase
     {
  
-        private readonly ILogger<TrafficController> _logger;
-        private readonly ITrafficSegmentRepository _trafficSegmentCache;
-        //private ITrafficSegmentRepository repository;
+        private readonly ILogger<TrafficController> _logger = logger;
+        private readonly IRoadFlowRateService roadFlowRateService = roadFlowRateService;
 
-        public TrafficController(ILogger<TrafficController> logger, ITrafficSegmentRepository trafficSegmentCache)
+        [HttpGet()]
+        public IEnumerable<RoadFlowRate> Get()
         {
-            _logger = logger;
-            _trafficSegmentCache = trafficSegmentCache;
-        }
-            
-
-       [HttpGet()]
-        public IEnumerable<TrafficSegment> Get()
-        {
-            return _trafficSegmentCache.GetAll();
+            return this.roadFlowRateService.GetAll();
         }
 
         [HttpPost]
-        public Task<CreatedResult> PostTrafficSegment(TrafficSegmentDto trafficBlockDto)
+        public Task<CreatedResult> PostTrafficSegment(RoadFlowRateDto trafficBlockDto)
         {
             var newTrafficSegment = trafficBlockDto.ToModel();
 
-            _trafficSegmentCache.Create(newTrafficSegment);
-            //repository.Create(newTrafficSegment);
+            roadFlowRateService.Create(newTrafficSegment);
 
             return Task.FromResult(Created());
-
-            /*return CreatedAtAction(
-                nameof(trafficBlock
-                new { id = trafficBlock.ReportingUnitId },
-                trafficBlock); */
         }
     }
 }

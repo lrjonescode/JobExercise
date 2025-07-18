@@ -10,25 +10,24 @@ namespace EagleRock.Repository.Services
 {
     public class BotStatusService : IBotStatusService
     {
-        private readonly ITrafficSegmentRepository _trafficSegmentCache;
-        public BotStatusService(ITrafficSegmentRepository trafficSegmentCache) 
+        private readonly IRoadFlowRateService roadFlowRateService;
+        public BotStatusService(IRoadFlowRateService roadFlowRateService) 
         {
-            _trafficSegmentCache = trafficSegmentCache;
+            this.roadFlowRateService = roadFlowRateService;
         }
         public IEnumerable<BotStatus> GetBotStatuses()
         {
-            var botGrouping = _trafficSegmentCache.GetAll().OrderBy(x => x.ReportedTime).GroupBy(x => x.ReportingUnitId).Select(x => x.Last());
+            var reportedBotData = this.roadFlowRateService.GetAll().OrderBy(x => x.ReportedAt).GroupBy(x => x.ReportingUnitId).Select(x => x.Last());
 
             var botStatuses = new List<BotStatus>();
-            foreach (var bot in botGrouping)
+            foreach (var botData in reportedBotData)
             {
                 botStatuses.Add(new BotStatus()
                 {
-                    ReportingUnitId = bot.ReportingUnitId,
-                    CurrentLocation = bot.Location,
-                    AverageSpeed = bot.AverageSpeed,
-                    FlowRate = bot.FlowRate,
-                    Section = bot.Section,
+                    Id = botData.ReportingUnitId,
+                    CurrentLocation = botData.Location,
+                    IsActive = true,
+                    LastReport = botData,
                 });
             }
             return botStatuses;

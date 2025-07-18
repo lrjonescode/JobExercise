@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EagleRock.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+139e56277c0b0c253eaa6a4a83f2b43e9af5d63b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ec1cebed31767c941b9b96753e7e3c0295ee520")]
 [assembly: System.Reflection.AssemblyProductAttribute("EagleRock.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EagleRock.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

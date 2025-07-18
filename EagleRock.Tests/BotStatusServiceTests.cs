@@ -7,17 +7,17 @@ namespace EagleRock.Tests
 {
     public class BotStausServiceTests
     {
-        private ITrafficSegmentRepository trafficSegmentRepository;
+        private IRoadFlowRateService roadFlowRateService;
         private BotStatusService testSubject;
         private IEnumerable<BotStatus> result;
         
         private void GivenFourUnitsHaveReportedTrafficSegments()
         {
-            var trafficSegments = new List<TrafficSegment>();
+            var trafficSegments = new List<RoadFlowRate>();
 
-            trafficSegments.Add(new TrafficSegment()
-            { 
-                ReportingUnitId = Guid.NewGuid(),
+            trafficSegments.Add(new RoadFlowRate()
+            {
+                ReportingUnitId = ""
 
             });
 
@@ -36,8 +36,8 @@ namespace EagleRock.Tests
         [SetUp]
         public void Setup()
         {
-            trafficSegmentRepository = Substitute.For<ITrafficSegmentRepository>();
-            this.testSubject = new BotStatusService(trafficSegmentRepository);
+            roadFlowRateService = Substitute.For<IRoadFlowRateService>();
+            this.testSubject = new BotStatusService(roadFlowRateService);
         }
 
         [Test]

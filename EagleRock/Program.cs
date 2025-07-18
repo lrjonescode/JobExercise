@@ -1,7 +1,6 @@
 using EagleRock.Repository;
 using EagleRock.Repository.Interfaces;
 using EagleRock.Repository.Services;
-using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IBotStatusService, BotStatusService>();
-builder.Services.AddSingleton<ITrafficSegmentRepository, TrafficSegmentRepository>();
+builder.Services.AddSingleton<IRoadFlowRateService, RoadFlowRateService>();
 //builder.Services.AddDbContext<TrafficSegmentContext>(options => options.UseMemoryCache()
 var app = builder.Build();
 

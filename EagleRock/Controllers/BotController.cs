@@ -1,29 +1,18 @@
-using EagleRock.DataTypes;
-using EagleRock.Repository;
+
 using EagleRock.Repository.Interfaces;
 using EagleRock.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
 
 namespace EagleRock.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class BotStatusController : ControllerBase
+    public class BotStatusController(ILogger<BotStatusController> logger, IBotStatusService botStatusService) : ControllerBase
     {
- 
-        private readonly ILogger<BotStatusController> _logger;
-        private readonly IBotStatusService botStatusService;
+        private readonly ILogger<BotStatusController> _logger = logger;
+        private readonly IBotStatusService botStatusService = botStatusService;
 
-        public BotStatusController(ILogger<BotStatusController> logger, IBotStatusService botStatusService)
-        {
-            _logger = logger;
-            this.botStatusService = botStatusService;
-        }
-            
-
-       [HttpGet()]
+        [HttpGet()]
         public IEnumerable<BotStatus> Get()
         {
             return this.botStatusService.GetBotStatuses();
