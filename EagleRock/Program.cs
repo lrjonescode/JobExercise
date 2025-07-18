@@ -12,7 +12,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IBotStatusService, BotStatusService>();
 builder.Services.AddSingleton<IRoadFlowRateService, RoadFlowRateService>();
-//builder.Services.AddDbContext<TrafficSegmentContext>(options => options.UseMemoryCache()
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

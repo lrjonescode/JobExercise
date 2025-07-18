@@ -5,13 +5,13 @@ using NSubstitute;
 
 namespace EagleRock.Tests
 {
-    public class BotStausServiceTests
+    public class BotStatusServiceTests
     {
         private IRoadFlowRateService roadFlowRateService;
         private BotStatusService testSubject;
         private IEnumerable<BotStatus> result;
         
-        private void GivenFourUnitsHaveReportedTrafficSegments()
+        private void GivenThreeUnitsHaveReportedTrafficSegments()
         {
             var trafficSegments = new List<RoadFlowRate>();
 
@@ -26,7 +26,7 @@ namespace EagleRock.Tests
 
         private void WhenServiceGetStatusIsCalled()
         {
-            this.result= testSubject.GetBotStatuses();
+            this.result= testSubject.GetBotStatus();
         }
         private void ThenTheLatestStatusRecordsAreReturned()
         {

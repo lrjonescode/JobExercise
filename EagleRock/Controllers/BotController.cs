@@ -15,7 +15,7 @@ namespace EagleRock.Controllers
         [HttpGet()]
         public IEnumerable<BotStatus> Get()
         {
-            return this.botStatusService.GetBotStatuses();
+            return this.botStatusService.GetBotStatus();
         }
     }
 }

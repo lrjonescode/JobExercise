@@ -5,6 +5,10 @@ namespace EagleRock.Repository.Interfaces
 {
     public interface IBotStatusService
     {
-        IEnumerable<BotStatus> GetBotStatuses();
+        /// <summary>
+        /// Gets current status of Bots
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<BotStatus> GetBotStatus();
     }
 }

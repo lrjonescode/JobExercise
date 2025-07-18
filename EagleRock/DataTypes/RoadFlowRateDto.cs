@@ -5,7 +5,7 @@ namespace EagleRock.DataTypes
     public class RoadFlowRateDto
     {
         public string ReportingUnitId {  get; set; }
-        public GeoLocation Location { get; set; } = new GeoLocation();
+        public GeoLocation Location { get; set; }
 
         public DateTime ReportedAt { get; set; }
 

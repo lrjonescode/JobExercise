@@ -1,10 +1,5 @@
 ﻿using EagleRock.Repository.Interfaces;
 using EagleRock.Repository.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EagleRock.Repository.Services
 {
@@ -15,7 +10,7 @@ namespace EagleRock.Repository.Services
         {
             this.roadFlowRateService = roadFlowRateService;
         }
-        public IEnumerable<BotStatus> GetBotStatuses()
+        public IEnumerable<BotStatus> GetBotStatus()
         {
             var reportedBotData = this.roadFlowRateService.GetAll().OrderBy(x => x.ReportedAt).GroupBy(x => x.ReportingUnitId).Select(x => x.Last());
 
