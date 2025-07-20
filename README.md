@@ -58,11 +58,9 @@ VehicleAverageSpeed
 
 ### http: Get /BotStatus/
 
-### Required Request Data: none
+### Required Request Data: None
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-Example Response
+####  Example Response
   {
     "id": "Daddy Cool",
     "isActive": true,
