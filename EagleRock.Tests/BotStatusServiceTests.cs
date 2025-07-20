@@ -39,7 +39,7 @@ namespace EagleRock.Tests
                 ReportedAt = DateTime.UtcNow,
                 VehicleFlowRate = 10,
                 VehicleAverageSpeed = 27.6d,
-                VehicleHeading = 7.6d,
+                VehicleHeading = 7.5d,
             };
             eagleRockData.Add(trafficSegment);
             dataReportTime = trafficSegment.ReportedAt;
@@ -63,7 +63,7 @@ namespace EagleRock.Tests
             Assert.That(this.result.Where(x => x.Id == botId).Single().LastReport?.ReportedAt, Is.EqualTo(this.dataReportTime));
             Assert.That(this.result.Where(x => x.Id == botId).Single().LastReport?.VehicleFlowRate, Is.EqualTo(10));
             Assert.That(this.result.Where(x => x.Id == botId).Single().LastReport?.VehicleAverageSpeed, Is.EqualTo(27.6));
-            //Assert.That(this.result.Where(x => x.Id == botId).Single().LastReport?.VehicleHeading, Is.EqualTo(7.5));
+            Assert.That(this.result.Where(x => x.Id == botId).Single().LastReport?.VehicleHeading, Is.EqualTo(7.5));
         }
 
         [SetUp]
