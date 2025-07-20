@@ -20,13 +20,12 @@ namespace EagleRock.Controllers
         }
 
         [HttpPost]
-        public Task<CreatedResult> PostTrafficSegment(RoadFlowRateDto trafficBlockDto)
+        public CreatedResult PostTrafficSegment(RoadFlowRateDto trafficBlockDto)
         {
             var newTrafficSegment = trafficBlockDto.ToModel();
-
             roadFlowRateService.Create(newTrafficSegment);
 
-            return Task.FromResult(Created());
+            return Created();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace EagleRock.Repository.Interfaces
 {
-    public interface ITrafficSegnentCache
+    public interface ITrafficCache
     {
         /// <summary>
         /// Get Data using key

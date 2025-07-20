@@ -5,27 +5,24 @@ namespace EagleRock.Repository
 {
     public class RoadFlowRateService : IRoadFlowRateService
     {
-        private IList<RoadFlowRate> roadFlowData;
+        // TODO : switch to readi cache once redis server issues are resolved
+        // ITrafficCache<RoadFlowRate> roadFlowRateRepository
+        private IList<RoadFlowRate> roadFlowRateRepository;
 
         public RoadFlowRateService()
         {
-            roadFlowData = [];
+            roadFlowRateRepository = [];
         }
 
         public bool Create(RoadFlowRate trafficSegment)
         {
-            roadFlowData.Add(trafficSegment);
+            roadFlowRateRepository.Add(trafficSegment);
             return true;
-        }
-
-        public RoadFlowRate Get(Guid Id)
-        {
-            throw new NotImplementedException();
         }
 
         public IEnumerable<RoadFlowRate> GetAll()
         {
-            return roadFlowData.AsEnumerable();
+            return roadFlowRateRepository.AsEnumerable();
         }
     }
 }

@@ -4,17 +4,14 @@ using StackExchange.Redis;
 
 namespace EagleRock.Repository
 {
-    public class TrafficSegmentCache : ITrafficSegnentCache
+    public class TrafficCache : ITrafficCache
     {
         private IDatabase _db;
-        public TrafficSegmentCache()
-        {
-            ConfigureRedis();
-        }
-        private void ConfigureRedis()
+        public TrafficCache()
         {
             ConnectionMultiplexer redis = ConnectionMultiplexer.Connect("localhost");
             _db = redis.GetDatabase();
+
         }
         public T GetData<T>(string key)
         {

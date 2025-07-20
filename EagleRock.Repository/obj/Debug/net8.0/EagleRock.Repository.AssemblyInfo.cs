@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EagleRock.Repository")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10e93aad60c71b0a76d717ebd9eecb8f20ec8fa0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef87e63c20240d973577988519c9a391c561db36")]
 [assembly: System.Reflection.AssemblyProductAttribute("EagleRock.Repository")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EagleRock.Repository")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
