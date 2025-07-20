@@ -31,7 +31,7 @@ namespace EagleRock.Controllers
             }
             else
             {
-                return BadRequest();
+                return BadRequest("Field reportingUnitId is required");
             }   
         }
     }
