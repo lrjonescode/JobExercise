@@ -115,5 +115,17 @@ namespace EagleRock.Tests
             TheReportedDataRecordCountIsCorrect(3, Ganymede);
             TheReportedDataRecordCountIsCorrect(6);
         }
+
+        [Test]
+        public void InvalidBotReportsAreNotStored()
+        {
+            GivenAValidUnit();
+
+            WhenBotHasReportedTrafficSegment(Io, null, Warrego, out var newResourceId1);
+            WhenBotHasReportedTrafficSegment(string.Empty, Plainlands, Warrego, out var newResourceId2);
+
+            TheReportedDataRecordCountIsCorrect(0, Io);
+            TheReportedDataRecordCountIsCorrect(0);
+        }
     }
 }
