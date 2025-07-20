@@ -17,22 +17,22 @@ http: POST /Traffic/
 
 Required Data
 
- # Reporting unit's unique identifier
+ ### Reporting unit's unique identifier
  string ReportingUnitId
 
- # Data reporting location (latitude / longitude)
+ ### Data reporting location (latitude / longitude)
  GeoLocation Location  
 
- # Data reporting time (UTC)  
+ ### Data reporting time (UTC)  
  DateTime ReportedAt
 
- #Road identifier/name
+ ### Road identifier/name
  string RoadId
 
- #Road flow rate (vehicles/second)
+ ###Road flow rate (vehicles/second)
  VehicleFlowRate 
 
- # Average vehicle speed (m/s)
+ ### Average vehicle speed (m/s)
 VehicleAverageSpeed
 
  /// <summary>
@@ -40,7 +40,7 @@ VehicleAverageSpeed
  /// </summary>
  VehicleHeading
 
-# JSON Example
+### JSON Example
 {
   "reportingUnitId": "EagleRockAgent",
   "location": {
@@ -54,9 +54,11 @@ VehicleAverageSpeed
   "vehicleHeading": 171.6
 }
 
-
+Response
+201 Created if data is successfully received by EagleRock
 
 http: Get /BotStatus/
+Required Data: none
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
