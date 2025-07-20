@@ -42,7 +42,7 @@ VehicleAverageSpeed
  #### Curl Example
 
 curl -X 'POST' \
-  'http://localhost:32780/Traffic' \
+  'http://EagleRockService/Traffic' \
   -H 'accept: */*' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -66,7 +66,7 @@ curl -X 'POST' \
 ### Required Request Data: None
 
 curl -X 'GET' \
-  'http://localhost:32780/BotStatus' \
+  'http://EagleRockService/BotStatus' \
   -H 'accept: text/plain'
 
 ####  Example Response
@@ -91,11 +91,6 @@ curl -X 'GET' \
       "vehicleHeading": 265.4
     }6
   }
-
-### Built With
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ### Prerequisites
 * Docker For Desktop
