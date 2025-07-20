@@ -14,34 +14,32 @@ EagleRock Traffic Monitoring Solutions provide a ASP .Net core based API that pr
 
 ## API's
 
-## http: POST /Traffic/
+### POST /Traffic/
 
-## Required Data
+### Required Request Data
 
- ### Reporting unit's unique identifier
+ #### Reporting unit's unique identifier
  string ReportingUnitId
 
- ### Data reporting location (latitude / longitude)
+ #### Data reporting location (latitude / longitude)
  GeoLocation Location  
 
- ### Data reporting time (UTC)  
+ #### Data reporting time (UTC)  
  DateTime ReportedAt
 
- ### Road identifier/name
+ #### Road identifier/name
  string RoadId
 
- ###Road flow rate (vehicles/second)
+ #### Road flow rate (vehicles/second)
  VehicleFlowRate 
 
- ### Average vehicle speed (m/s)
+ #### Average vehicle speed (m/s)
 VehicleAverageSpeed
 
- /// <summary>
- /// vehicle direction (heading) (degrees)
- /// </summary>
+ #### vehicle direction (heading) (degrees)
  VehicleHeading
 
-### JSON Example
+ #### JSON Example
 {
   "reportingUnitId": "EagleRockAgent",
   "location": {
@@ -55,12 +53,12 @@ VehicleAverageSpeed
   "vehicleHeading": 171.6
 }
 
-## Response
+### Response
 201 Created if data is successfully received by EagleRock
 
-## http: Get /BotStatus/
+### http: Get /BotStatus/
 
-## Required Data: none
+### Required Request Data: none
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
