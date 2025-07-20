@@ -39,18 +39,23 @@ VehicleAverageSpeed
  #### vehicle direction (heading) (degrees)
  VehicleHeading
 
- #### JSON Example
-{
-  "reportingUnitId": "EagleRockAgent",
+ #### Curl Example
+
+curl -X 'POST' \
+  'http://localhost:32780/Traffic' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "reportingUnitId": "Daddy Cool",
   "location": {
-    "latitude": 142.89,
-    "longitude": 34.15
+    "latitude": -34.41,
+    "longitude": 141.76
   },
-  "reportedAt": "2025-07-20T07:11:12.827Z",
+  "reportedAt": "2025-07-20T23:24:43.122Z",
   "roadId": "CreekRd",
-  "vehicleFlowRate": 6,
-  "vehicleAverageSpeed": 27.6,
-  "vehicleHeading": 171.6
+  "vehicleFlowRate": 7,
+  "vehicleAverageSpeed": 17.1,
+  "vehicleHeading": 5.4
 }
 
 ### Response
@@ -59,6 +64,10 @@ VehicleAverageSpeed
 ### http: Get /BotStatus/
 
 ### Required Request Data: None
+
+curl -X 'GET' \
+  'http://localhost:32780/BotStatus' \
+  -H 'accept: text/plain'
 
 ####  Example Response
   {
