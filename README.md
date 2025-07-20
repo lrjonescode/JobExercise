@@ -9,42 +9,30 @@
 
 EagleRock Traffic Monitoring Solutions provide a ASP .Net core based API that provides functionality to
 
-1) Allow authorised agent to send observed traffic data to be stored by EagleRock
-2) Provide a summary of the current state of agents ho have submitted data to EagleRock
+1) Allow up to three(3) authorised agents to send observed traffic data to be stored by EagleRock
+2) Provide a summary of the current state of agents who have submitted data to EagleRock
 
 API's
 http: POST /Traffic/
 
 Required Data
 
- /// <summary>
- /// Reporting unit's unique identifier
- /// </summary>
+ # Reporting unit's unique identifier
  string ReportingUnitId
 
- /// <summary>
- /// data reporting location (latitude / longitude)
- /// </summary>
+ # Data reporting location (latitude / longitude)
  GeoLocation Location  
 
- /// <summary>
- /// data reporting time (UTC)
- /// </summary>     
- ateTime ReportedAt
+ # Data reporting time (UTC)  
+ DateTime ReportedAt
 
- /// <summary>
- /// Road identifier/name
- /// </summary>
+ #Road identifier/name
  string RoadId
 
- /// <summary>
- /// Road flow rate (vehicles/second)
- /// </summary>
+ #Road flow rate (vehicles/second)
  VehicleFlowRate 
 
- /// <summary>
- /// Average vehicle speed (m/s)
- /// </summary>
+ # Average vehicle speed (m/s)
 VehicleAverageSpeed
 
  /// <summary>
@@ -52,7 +40,7 @@ VehicleAverageSpeed
  /// </summary>
  VehicleHeading
 
-#JSON Example
+# JSON Example
 {
   "reportingUnitId": "EagleRockAgent",
   "location": {
@@ -67,7 +55,33 @@ VehicleAverageSpeed
 }
 
 
+
+http: Get /BotStatus/
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+Example Response
+  {
+    "id": "Daddy Cool",
+    "isActive": true,
+    "currentLocation": {
+      "latitude": 142.4,
+      "longitude": -35.51
+    },
+    "lastReport": {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "reportingUnitId": "Daddy Cool",
+      "location": {
+        "latitude": 142.4,
+        "longitude": -35.51
+      },
+      "reportedAt": "2025-07-20T07:28:11.339Z",
+      "roadId": "Warrego Hwy",
+      "vehicleFlowRate": 6,
+      "vehicleAverageSpeed": 31.4,
+      "vehicleHeading": 265.4
+    }6
+  }
 
 
 
