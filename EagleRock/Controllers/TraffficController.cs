@@ -20,13 +20,19 @@ namespace EagleRock.Controllers
         }
 
         [HttpPost]
-        public CreatedResult PostTrafficSegment(RoadFlowRateDto trafficBlockDto)
+        public IActionResult Post([FromBody] RoadFlowRateDto trafficSegment)
         {
-            this.logger.LogInformation(string.Format("POST //Traffic called by {0}",trafficBlockDto.ReportingUnitId));
-            var newTrafficSegment = trafficBlockDto.ToModel();
-            this.roadFlowRateService.Create(newTrafficSegment);
-
-            return Created();
+            this.logger.LogInformation(string.Format("POST //Traffic called by {0}", trafficSegment.ReportingUnitId));
+            var newTrafficSegment = trafficSegment.ToModel();
+            if (this.roadFlowRateService.Create(newTrafficSegment))
+            {
+                // At this stage no requirement for single created resource uri
+                return Created(string.Empty,newTrafficSegment);
+            }
+            else
+            {
+                return BadRequest();
+            }   
         }
     }
 }
