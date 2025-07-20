@@ -10,7 +10,7 @@ namespace EagleRock.Controllers
     public class TrafficController(ILogger<TrafficController> logger, IRoadFlowRateService roadFlowRateService) : ControllerBase
     {
  
-        private readonly ILogger<TrafficController> _logger = logger;
+        private readonly ILogger<TrafficController> logger = logger;
         private readonly IRoadFlowRateService roadFlowRateService = roadFlowRateService;
 
         [HttpGet()]
@@ -22,8 +22,9 @@ namespace EagleRock.Controllers
         [HttpPost]
         public CreatedResult PostTrafficSegment(RoadFlowRateDto trafficBlockDto)
         {
+            this.logger.LogInformation(string.Format("POST //Traffic called by {0}",trafficBlockDto.ReportingUnitId));
             var newTrafficSegment = trafficBlockDto.ToModel();
-            roadFlowRateService.Create(newTrafficSegment);
+            this.roadFlowRateService.Create(newTrafficSegment);
 
             return Created();
         }

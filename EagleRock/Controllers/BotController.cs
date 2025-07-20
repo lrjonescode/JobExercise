@@ -9,12 +9,13 @@ namespace EagleRock.Controllers
     [Route("[controller]")]
     public class BotStatusController(ILogger<BotStatusController> logger, IBotStatusService botStatusService) : ControllerBase
     {
-        private readonly ILogger<BotStatusController> _logger = logger;
+        private readonly ILogger<BotStatusController> logger = logger;
         private readonly IBotStatusService botStatusService = botStatusService;
 
         [HttpGet()]
         public IEnumerable<BotStatus> Get()
         {
+            this.logger.LogInformation(string.Format("BotStatus GET called"));
             return this.botStatusService.GetBotStatus();
         }
     }

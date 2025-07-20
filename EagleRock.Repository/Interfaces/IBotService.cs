@@ -8,7 +8,7 @@ namespace EagleRock.Repository.Interfaces
         /// <summary>
         /// Gets current status of Bots
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List of Bot status records</returns>
         IEnumerable<BotStatus> GetBotStatus();
     }
 }
