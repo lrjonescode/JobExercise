@@ -12,10 +12,11 @@ EagleRock Traffic Monitoring Solutions provide a ASP .Net core based API that pr
 1) Allow up to three(3) authorised agents to send observed traffic data to be stored by EagleRock
 2) Provide a summary of the current state of agents who have submitted data to EagleRock
 
-API's
-http: POST /Traffic/
+## API's
 
-Required Data
+## http: POST /Traffic/
+
+## Required Data
 
  ### Reporting unit's unique identifier
  string ReportingUnitId
@@ -54,11 +55,12 @@ VehicleAverageSpeed
   "vehicleHeading": 171.6
 }
 
-Response
+## Response
 201 Created if data is successfully received by EagleRock
 
-http: Get /BotStatus/
-Required Data: none
+## http: Get /BotStatus/
+
+## Required Data: none
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -85,11 +87,7 @@ Example Response
     }6
   }
 
-
-
 ### Built With
-
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
