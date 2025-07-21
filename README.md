@@ -14,6 +14,15 @@ EagleRock Traffic Monitoring Solutions provide a ASP .Net core based API that pr
 
 ## API's
 
+### GET /Ping
+Service availabilty ping request
+curl -X 'GET' \
+  'http://EagleRockHost/Ping' \
+  -H 'accept: text/plain'
+
+Response
+200 OK EagleRock is online
+
 ### POST /Traffic/
 
 ### Required Request Data
