@@ -1,8 +1,5 @@
 
-using EagleRock.Repository.Interfaces;
-using EagleRock.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Runtime.CompilerServices;
 
 namespace EagleRock.Controllers
 {
@@ -14,7 +11,6 @@ namespace EagleRock.Controllers
         [HttpGet()]
         public string Get()
         {
-
             return PingMessage;
         }
     }
